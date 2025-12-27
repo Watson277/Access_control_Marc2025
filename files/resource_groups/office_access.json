@@ -1,0 +1,11 @@
+{
+  "groupName": "office_access",
+  "securityLevel": 1,
+  "description": "办公室访问组",
+  "resources": [
+    "RES001",
+    "RES002",
+    "RES003"
+  ]
+}
+

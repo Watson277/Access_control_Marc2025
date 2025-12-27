@@ -1,0 +1,28 @@
+{
+  "profileName": "Employee Profile",
+  "description": "标准员工配置文件",
+  "resourceGroups": [
+    "office_access",
+    "printer_access",
+    "beverage_access"
+  ],
+  "accessRules": [
+    {
+      "resourceGroup": "office_access",
+      "allowedDays": [1, 2, 3, 4, 5],
+      "startTime": "08:00",
+      "endTime": "18:00"
+    },
+    {
+      "resourceGroup": "printer_access",
+      "allowedDays": [1, 2, 3, 4, 5],
+      "maxAccessPerDay": 50
+    },
+    {
+      "resourceGroup": "beverage_access",
+      "allowedDays": [1, 2, 3, 4, 5],
+      "maxAccessPerDay": 5
+    }
+  ]
+}
+

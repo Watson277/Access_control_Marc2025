@@ -1,0 +1,10 @@
+{
+  "groupName": "printer_access",
+  "securityLevel": 0,
+  "description": "打印机访问组",
+  "resources": [
+    "RES004",
+    "RES005"
+  ]
+}
+

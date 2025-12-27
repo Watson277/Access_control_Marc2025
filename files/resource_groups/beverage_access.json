@@ -1,0 +1,10 @@
+{
+  "groupName": "beverage_access",
+  "securityLevel": 0,
+  "description": "饮料机访问组",
+  "resources": [
+    "RES006",
+    "RES007"
+  ]
+}
+
