@@ -37,5 +37,13 @@ public interface AccessRuleDAO {
      * @return true if deletion was successful, false otherwise
      */
     boolean deleteRule(String ruleId);
+    
+    /**
+     * Retrieves all access rules
+     * Note: Access rules are typically stored in configuration files, not the database.
+     * This method may return an empty list if rules are file-based.
+     * @return list of all AccessRule objects
+     */
+    java.util.List<AccessRule> getAllRules();
 }
 

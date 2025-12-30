@@ -1,11 +1,16 @@
 package com.bigcomp.accesscontrol.dao;
 
-import com.bigcomp.accesscontrol.model.Badge;
-import com.bigcomp.accesscontrol.util.DatabaseConnection;
-import java.sql.*;
-import java.time.LocalDate;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.bigcomp.accesscontrol.model.Badge;
+import com.bigcomp.accesscontrol.util.DatabaseConnection;
 
 /**
  * Implementation of BadgeDAO interface.
@@ -39,7 +44,7 @@ public class BadgeDAOImpl implements BadgeDAO {
                 return badge;
             }
         } catch (SQLException e) {
-            System.err.println("查询徽章失败: " + e.getMessage());
+            System.err.println("Failed to query badge: " + e.getMessage());
         }
         return null;
     }
@@ -57,7 +62,7 @@ public class BadgeDAOImpl implements BadgeDAO {
                 badges.add(badge);
             }
         } catch (SQLException e) {
-            System.err.println("查询所有徽章失败: " + e.getMessage());
+            System.err.println("Failed to query all badges: " + e.getMessage());
         }
         return badges;
     }

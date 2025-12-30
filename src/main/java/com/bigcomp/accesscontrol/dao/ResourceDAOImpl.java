@@ -1,11 +1,17 @@
 package com.bigcomp.accesscontrol.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Types;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.bigcomp.accesscontrol.model.Resource;
 import com.bigcomp.accesscontrol.model.ResourceGroup;
 import com.bigcomp.accesscontrol.util.DatabaseConnection;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Implementation of ResourceDAO interface.
@@ -35,7 +41,7 @@ public class ResourceDAOImpl implements ResourceDAO {
                 return mapResultSetToResource(rs);
             }
         } catch (SQLException e) {
-            System.err.println("查询资源失败: " + e.getMessage());
+            System.err.println("Failed to query resource: " + e.getMessage());
         }
         return null;
     }
@@ -51,7 +57,7 @@ public class ResourceDAOImpl implements ResourceDAO {
                 resources.add(mapResultSetToResource(rs));
             }
         } catch (SQLException e) {
-            System.err.println("查询所有资源失败: " + e.getMessage());
+            System.err.println("Failed to query all resources: " + e.getMessage());
         }
         return resources;
     }
@@ -76,7 +82,7 @@ public class ResourceDAOImpl implements ResourceDAO {
             }
             return pstmt.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println("插入资源失败: " + e.getMessage());
+            System.err.println("Failed to insert resource: " + e.getMessage());
             return false;
         }
     }
@@ -101,7 +107,7 @@ public class ResourceDAOImpl implements ResourceDAO {
             pstmt.setString(8, resource.getResourceId());
             return pstmt.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println("更新资源失败: " + e.getMessage());
+            System.err.println("Failed to update resource: " + e.getMessage());
             return false;
         }
     }
@@ -114,7 +120,7 @@ public class ResourceDAOImpl implements ResourceDAO {
             pstmt.setString(1, resourceId);
             return pstmt.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println("删除资源失败: " + e.getMessage());
+            System.err.println("Failed to delete resource: " + e.getMessage());
             return false;
         }
     }
@@ -133,7 +139,7 @@ public class ResourceDAOImpl implements ResourceDAO {
                 return group;
             }
         } catch (SQLException e) {
-            System.err.println("查询资源组失败: " + e.getMessage());
+            System.err.println("Failed to query resource group: " + e.getMessage());
         }
         return null;
     }
@@ -151,7 +157,7 @@ public class ResourceDAOImpl implements ResourceDAO {
                 groups.add(group);
             }
         } catch (SQLException e) {
-            System.err.println("查询所有资源组失败: " + e.getMessage());
+            System.err.println("Failed to query all resource groups: " + e.getMessage());
         }
         return groups;
     }
@@ -207,7 +213,7 @@ public class ResourceDAOImpl implements ResourceDAO {
                 group.addResource(rs.getString("resource_id"));
             }
         } catch (SQLException e) {
-            System.err.println("加载资源组成员失败: " + e.getMessage());
+            System.err.println("Failed to load resource group members: " + e.getMessage());
         }
     }
 }

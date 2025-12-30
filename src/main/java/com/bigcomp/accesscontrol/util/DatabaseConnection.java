@@ -63,7 +63,7 @@ public class DatabaseConnection {
                 inputStream.close();
             }
         } catch (Exception e) {
-            System.err.println("加载数据库配置失败，使用默认配置: " + e.getMessage());
+            System.err.println("Failed to load database configuration, using default: " + e.getMessage());
             url = "jdbc:mysql://localhost:3306/bigcomp_access?useSSL=false&serverTimezone=UTC&characterEncoding=utf8";
             username = "root";
             password = "";  // Default password is empty

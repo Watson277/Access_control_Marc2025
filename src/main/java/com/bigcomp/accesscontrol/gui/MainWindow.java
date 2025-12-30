@@ -39,10 +39,28 @@ public class MainWindow extends JFrame {
     public MainWindow() {
         initializeComponents();
         setupLayout();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setTitle("Access Control System - BigComp");
         setSize(1200, 800);
         setLocationRelativeTo(null);
+        
+        // Add window close listener to cleanup resources
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                cleanup();
+                System.exit(0);
+            }
+        });
+    }
+    
+    /**
+     * Cleanup method to release resources when window is closed
+     */
+    private void cleanup() {
+        if (monitoringPanel != null) {
+            monitoringPanel.cleanup();
+        }
     }
 
     /**

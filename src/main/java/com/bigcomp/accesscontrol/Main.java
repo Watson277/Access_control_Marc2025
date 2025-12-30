@@ -1,7 +1,8 @@
 package com.bigcomp.accesscontrol;
 
-import com.bigcomp.accesscontrol.gui.MainWindow;
 import javax.swing.SwingUtilities;
+
+import com.bigcomp.accesscontrol.gui.MainWindow;
 
 /**
  * Main entry point for the Access Control System application.
@@ -20,7 +21,7 @@ public class Main {
                 javax.swing.UIManager.setLookAndFeel(
                     javax.swing.UIManager.getSystemLookAndFeelClassName());
             } catch (Exception e) {
-                System.err.println("设置外观失败: " + e.getMessage());
+                System.err.println("Failed to set look and feel: " + e.getMessage());
             }
 
             // Create and display main window

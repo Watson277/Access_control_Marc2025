@@ -6,15 +6,15 @@ USE bigcomp_access;
 
 -- 插入配置文件（定义访问权限模板）
 INSERT INTO profiles (profile_name, file_path, description) VALUES
-('Employee Profile', 'files/profiles/employee_profile.json', '标准员工配置文件，可访问办公区域'),
-('Contractor Profile', 'files/profiles/contractor_profile.json', '承包商配置文件，有限访问权限'),
-('Intern Profile', 'files/profiles/intern_profile.json', '实习生配置文件，基础访问权限')
+('Employee Profile', 'files/profiles/employee_profile.json', 'Standard employee profile with access to office areas'),
+('Contractor Profile', 'files/profiles/contractor_profile.json', 'Contractor profile with limited access permissions'),
+('Intern Profile', 'files/profiles/intern_profile.json', 'Intern profile with basic access permissions')
 ON DUPLICATE KEY UPDATE description = VALUES(description);
 
 -- 插入资源组（将资源分组管理）
 INSERT INTO resource_groups (group_name, security_level, file_path, description) VALUES
-('office_access', 1, 'files/resource_groups/office_access.json', '办公区域访问组，包含办公室门和电梯'),
-('building_access', 0, 'files/resource_groups/building_access.json', '大楼访问组，包含主入口')
+('office_access', 1, 'files/resource_groups/office_access.json', 'Office area access group, including office doors and elevators'),
+('building_access', 0, 'files/resource_groups/building_access.json', 'Building access group, including main entrance')
 ON DUPLICATE KEY UPDATE description = VALUES(description);
 
 -- 建立权限链：徽章 → 配置文件

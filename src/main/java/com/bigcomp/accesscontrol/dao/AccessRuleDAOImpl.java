@@ -4,6 +4,8 @@ import com.bigcomp.accesscontrol.model.AccessRule;
 import com.bigcomp.accesscontrol.util.DatabaseConnection;
 import java.sql.*;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Implementation of AccessRuleDAO interface.
@@ -45,6 +47,14 @@ public class AccessRuleDAOImpl implements AccessRuleDAO {
     public boolean deleteRule(String ruleId) {
         // Rules are stored in configuration files
         return true;
+    }
+    
+    @Override
+    public List<AccessRule> getAllRules() {
+        // Note: Access rules are typically stored in configuration files, not the database.
+        // This implementation returns an empty list since rules are file-based.
+        // In a production system, you might want to read rules from configuration files here.
+        return new ArrayList<>();
     }
 }
 
